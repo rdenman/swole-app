@@ -1,5 +1,5 @@
-import Testing
 @testable import Swole
+import Testing
 
 struct SmokeTests {
     @Test func appModuleLoads() {

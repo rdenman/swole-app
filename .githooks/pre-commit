@@ -1,0 +1,37 @@
+#!/usr/bin/env bash
+# Runs SwiftLint + SwiftFormat (--lint) on staged Swift changes.
+# Enable once per clone: ./scripts/install-git-hooks.sh
+# (or: git config core.hooksPath .githooks)
+
+set -euo pipefail
+
+ROOT="$(git rev-parse --show-toplevel)"
+cd "$ROOT"
+
+if ! command -v swiftlint >/dev/null 2>&1; then
+  echo "error: swiftlint not found. Install with: brew install swiftlint" >&2
+  exit 1
+fi
+
+if ! command -v swiftformat >/dev/null 2>&1; then
+  echo "error: swiftformat not found. Install with: brew install swiftformat" >&2
+  exit 1
+fi
+
+STAGED=()
+while IFS= read -r file; do
+  [[ -n "$file" ]] || continue
+  STAGED+=("$file")
+done < <(git diff --cached --name-only --diff-filter=ACMR -- '*.swift')
+
+if [[ ${#STAGED[@]} -eq 0 ]]; then
+  exit 0
+fi
+
+echo "pre-commit: swiftformat --lint (${#STAGED[@]} file(s))"
+swiftformat --lint "${STAGED[@]}"
+
+echo "pre-commit: swiftlint lint --strict (${#STAGED[@]} file(s))"
+swiftlint lint --strict -- "${STAGED[@]}"
+
+echo "pre-commit: lint/format clean"

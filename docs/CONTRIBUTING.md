@@ -49,6 +49,31 @@ xcodebuild -project Swole.xcodeproj -scheme Swole \
 
 List destinations with `xcodebuild -project Swole.xcodeproj -scheme Swole -showdestinations`. Any iOS ≥ 18 simulator is valid.
 
+## Lint & format
+
+Style is enforced with **SwiftLint** and **SwiftFormat** (configs: `.swiftlint.yml`, `.swiftformat`).
+
+```bash
+brew install swiftlint swiftformat   # once
+
+# Check (must be clean; same bar as CI / pre-commit)
+swiftlint lint --strict
+swiftformat --lint .
+
+# Auto-fix formatting
+swiftformat .
+```
+
+### Pre-commit hook
+
+Commits run lint/format on **staged** `.swift` files via `.githooks/pre-commit`. Enable once per clone:
+
+```bash
+./scripts/install-git-hooks.sh
+```
+
+That sets `core.hooksPath` to `.githooks`. Missing tools fail the commit with install instructions.
+
 ## Conventions
 
 - New UI belongs in `DesignSystem/` or a `Features/*` screen that consumes the design system — no ad-hoc colors/spacing.

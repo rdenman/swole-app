@@ -11,9 +11,10 @@ Native, offline-first iOS strength-and-cardio tracker. Manual logging is first-c
 ## Quick start
 
 ```bash
-brew install xcodegen
+brew install xcodegen swiftlint swiftformat
 xcodegen generate
+./scripts/install-git-hooks.sh
 open Swole.xcodeproj
 ```
 
-See [docs/CONTRIBUTING.md](docs/CONTRIBUTING.md) for folder layout, build/test commands, and conventions. Product requirements live in [docs/DESIGN.md](docs/DESIGN.md); the implementation backlog is [docs/STORIES.md](docs/STORIES.md).
+See [docs/CONTRIBUTING.md](docs/CONTRIBUTING.md) for folder layout, build/test/lint commands, and conventions. Product requirements live in [docs/DESIGN.md](docs/DESIGN.md); the implementation backlog is [docs/STORIES.md](docs/STORIES.md).

@@ -6,7 +6,7 @@ final class SmokeUITests: XCTestCase {
     }
 
     @MainActor
-    func testLaunch() throws {
+    func testLaunch() {
         let app = XCUIApplication()
         app.launch()
         XCTAssertTrue(app.staticTexts["Swole"].waitForExistence(timeout: 5))

@@ -55,7 +55,7 @@ Ordered, self-contained implementation backlog to take Swole from empty repo to 
 - **Tests:** A trivial passing unit test in the unit-test target; a smoke UI test that launches the app.
 
 ### S02 — Linting & formatting
-- [ ] **Status:** Not started
+- [x] **Status:** Complete
 - **Goal:** Enforce consistent style automatically.
 - **Depends on:** S01
 - **Scope:**
