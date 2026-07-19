@@ -2,7 +2,7 @@
 
 Ordered, self-contained implementation backlog to take Swole from empty repo to an **App Store submission-ready** MVP that includes the full manual experience **and** on-device Apple Intelligence generation + coaching.
 
-**Source of truth:** all requirement IDs (e.g. `R9`, `AE1`) reference [`ARCHITECTURE.md`](../ARCHITECTURE.md). Read the relevant requirements before starting a story.
+**Source of truth:** all requirement IDs (e.g. `R9`, `AE1`) reference [`docs/DESIGN.md`](docs/DESIGN.md) (canonical plan artifact). Read the relevant requirements before starting a story.
 
 ## How to use this file
 
@@ -22,7 +22,7 @@ Ordered, self-contained implementation backlog to take Swole from empty repo to 
 
 | Phase | Theme | Stories | Status |
 |-------|-------|---------|--------|
-| 0 | Foundation & tech initiatives | S01–S14 | Not started |
+| 0 | Foundation & tech initiatives | S01–S14 | In progress |
 | 1 | Exercises & catalog | S15–S17 | Not started |
 | 2 | Templates | S18–S21 | Not started |
 | 3 | Active workout & timers | S22–S31 | Not started |
@@ -38,7 +38,7 @@ Ordered, self-contained implementation backlog to take Swole from empty repo to 
 > Front-loaded so all feature work sits on a sound, consistent base. No feature story should begin before Phase 0 is complete.
 
 ### S01 — Project scaffold & platform baseline
-- [ ] **Status:** Not started
+- [x] **Status:** Complete
 - **Goal:** Create the Xcode project and lock foundational technical choices.
 - **Depends on:** —
 - **Requirements:** R14; Key Decisions (tech stack); Outstanding Questions (iOS baseline)

@@ -1,0 +1,544 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		4D5E67EC5F338018349758FC /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EEADD156109B1F0385D7E63 /* ContentView.swift */; };
+		52B1E2B8EB033AE926916574 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B508C2DD2649700FA299F212 /* Assets.xcassets */; };
+		5F4BB2089A971D507F4C42B8 /* SmokeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAA12FB1B7D70703E42AA6F7 /* SmokeUITests.swift */; };
+		E1E143E2431E2DC5EC894419 /* SmokeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08E60066C4D3FA2C027AE2FF /* SmokeTests.swift */; };
+		F0FE3B3D3174CCD11EE88F65 /* SwoleApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA4E23A79559449A0966BA7D /* SwoleApp.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		24EAF2DFEEA2154B889F4118 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3B3841D97682EEABA2DCB9D1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = DD6BD8002689A9F6C2C2DA53;
+			remoteInfo = Swole;
+		};
+		7800DC471D2A2888B15E3EEA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3B3841D97682EEABA2DCB9D1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = DD6BD8002689A9F6C2C2DA53;
+			remoteInfo = Swole;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		01C52155358A534B4DB26356 /* SwoleTests.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = SwoleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		08E60066C4D3FA2C027AE2FF /* SmokeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmokeTests.swift; sourceTree = "<group>"; };
+		2EEADD156109B1F0385D7E63 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		76DC491130D8AC706ACC7C2B /* Swole.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = Swole.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B508C2DD2649700FA299F212 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		CA4E23A79559449A0966BA7D /* SwoleApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwoleApp.swift; sourceTree = "<group>"; };
+		CAA12FB1B7D70703E42AA6F7 /* SmokeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmokeUITests.swift; sourceTree = "<group>"; };
+		F5672D81F9CE66368D45DDFE /* SwoleUITests.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = SwoleUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXGroup section */
+		0F3E5C25653581D1A1DF4C84 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				B508C2DD2649700FA299F212 /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		1643E7F7A6A9BF263194178D /* App */ = {
+			isa = PBXGroup;
+			children = (
+				2EEADD156109B1F0385D7E63 /* ContentView.swift */,
+				CA4E23A79559449A0966BA7D /* SwoleApp.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		5271F16E209A612C1AAF1898 /* Swole */ = {
+			isa = PBXGroup;
+			children = (
+				1643E7F7A6A9BF263194178D /* App */,
+				0F3E5C25653581D1A1DF4C84 /* Resources */,
+			);
+			path = Swole;
+			sourceTree = "<group>";
+		};
+		AF6D7455FF0201C0689430B8 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				76DC491130D8AC706ACC7C2B /* Swole.app */,
+				01C52155358A534B4DB26356 /* SwoleTests.xctest */,
+				F5672D81F9CE66368D45DDFE /* SwoleUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		C374786C21132E206329890A = {
+			isa = PBXGroup;
+			children = (
+				5271F16E209A612C1AAF1898 /* Swole */,
+				EA043375D92ACDA06713BBE4 /* SwoleTests */,
+				EB3AE2A01AE380C78DDE332F /* SwoleUITests */,
+				AF6D7455FF0201C0689430B8 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		EA043375D92ACDA06713BBE4 /* SwoleTests */ = {
+			isa = PBXGroup;
+			children = (
+				08E60066C4D3FA2C027AE2FF /* SmokeTests.swift */,
+			);
+			path = SwoleTests;
+			sourceTree = "<group>";
+		};
+		EB3AE2A01AE380C78DDE332F /* SwoleUITests */ = {
+			isa = PBXGroup;
+			children = (
+				CAA12FB1B7D70703E42AA6F7 /* SmokeUITests.swift */,
+			);
+			path = SwoleUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		921963ADAFBB20DAA82893AC /* SwoleUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BD2163FE2F9B284B28FFC8DD /* Build configuration list for PBXNativeTarget "SwoleUITests" */;
+			buildPhases = (
+				C0CF19C9819DC27936D0F64F /* Sources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				E8302C6D495E3CD866E24744 /* PBXTargetDependency */,
+			);
+			name = SwoleUITests;
+			packageProductDependencies = (
+			);
+			productName = SwoleUITests;
+			productReference = F5672D81F9CE66368D45DDFE /* SwoleUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+		C390FC4727B408B22836E57D /* SwoleTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9C34BB9B89C2B7E5BEFDC01C /* Build configuration list for PBXNativeTarget "SwoleTests" */;
+			buildPhases = (
+				02381729DC0E17753702F329 /* Sources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				0267DCC483A40C523881A3C1 /* PBXTargetDependency */,
+			);
+			name = SwoleTests;
+			packageProductDependencies = (
+			);
+			productName = SwoleTests;
+			productReference = 01C52155358A534B4DB26356 /* SwoleTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		DD6BD8002689A9F6C2C2DA53 /* Swole */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C28685667F7D4AE069DC7FB2 /* Build configuration list for PBXNativeTarget "Swole" */;
+			buildPhases = (
+				FE105253FE9B8603B95F59FF /* Sources */,
+				CF7267714A66AE49C99C716A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Swole;
+			packageProductDependencies = (
+			);
+			productName = Swole;
+			productReference = 76DC491130D8AC706ACC7C2B /* Swole.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		3B3841D97682EEABA2DCB9D1 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 1430;
+				TargetAttributes = {
+					921963ADAFBB20DAA82893AC = {
+						TestTargetID = DD6BD8002689A9F6C2C2DA53;
+					};
+				};
+			};
+			buildConfigurationList = 33AF3A90A47FCB0227C857FA /* Build configuration list for PBXProject "Swole" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				Base,
+				en,
+			);
+			mainGroup = C374786C21132E206329890A;
+			minimizedProjectReferenceProxies = 1;
+			preferredProjectObjectVersion = 77;
+			productRefGroup = AF6D7455FF0201C0689430B8 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				DD6BD8002689A9F6C2C2DA53 /* Swole */,
+				C390FC4727B408B22836E57D /* SwoleTests */,
+				921963ADAFBB20DAA82893AC /* SwoleUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		CF7267714A66AE49C99C716A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				52B1E2B8EB033AE926916574 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		02381729DC0E17753702F329 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E1E143E2431E2DC5EC894419 /* SmokeTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C0CF19C9819DC27936D0F64F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5F4BB2089A971D507F4C42B8 /* SmokeUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FE105253FE9B8603B95F59FF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4D5E67EC5F338018349758FC /* ContentView.swift in Sources */,
+				F0FE3B3D3174CCD11EE88F65 /* SwoleApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		0267DCC483A40C523881A3C1 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = DD6BD8002689A9F6C2C2DA53 /* Swole */;
+			targetProxy = 24EAF2DFEEA2154B889F4118 /* PBXContainerItemProxy */;
+		};
+		E8302C6D495E3CD866E24744 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = DD6BD8002689A9F6C2C2DA53 /* Swole */;
+			targetProxy = 7800DC471D2A2888B15E3EEA /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		2671FA013A5A071DD2CBDF8E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"DEBUG=1",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
+				MARKETING_VERSION = 1.0.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_STRICT_CONCURRENCY = complete;
+				SWIFT_VERSION = 6.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		3738D0D271A829837F70AC00 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.swole.app.tests;
+				SDKROOT = iphoneos;
+				SWIFT_STRICT_CONCURRENCY = complete;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Swole.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Swole";
+			};
+			name = Release;
+		};
+		3C459A9642D816130A0A538D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.swole.app.uitests;
+				SDKROOT = iphoneos;
+				SWIFT_STRICT_CONCURRENCY = complete;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Swole;
+			};
+			name = Debug;
+		};
+		921E224A4C44D0963428A743 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = Swole;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.swole.app;
+				PRODUCT_NAME = Swole;
+				SDKROOT = iphoneos;
+				SWIFT_STRICT_CONCURRENCY = complete;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		947EB22CDC4854D4C3A3F799 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = Swole;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.swole.app;
+				PRODUCT_NAME = Swole;
+				SDKROOT = iphoneos;
+				SWIFT_STRICT_CONCURRENCY = complete;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		AB598D800859E22886D91E1E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.swole.app.tests;
+				SDKROOT = iphoneos;
+				SWIFT_STRICT_CONCURRENCY = complete;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Swole.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Swole";
+			};
+			name = Debug;
+		};
+		AE49958FDCD065E5CBCF7B33 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
+				MARKETING_VERSION = 1.0.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_STRICT_CONCURRENCY = complete;
+				SWIFT_VERSION = 6.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+		FAC1E087E909019C3A6E04FF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.swole.app.uitests;
+				SDKROOT = iphoneos;
+				SWIFT_STRICT_CONCURRENCY = complete;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Swole;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		33AF3A90A47FCB0227C857FA /* Build configuration list for PBXProject "Swole" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2671FA013A5A071DD2CBDF8E /* Debug */,
+				AE49958FDCD065E5CBCF7B33 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		9C34BB9B89C2B7E5BEFDC01C /* Build configuration list for PBXNativeTarget "SwoleTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AB598D800859E22886D91E1E /* Debug */,
+				3738D0D271A829837F70AC00 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		BD2163FE2F9B284B28FFC8DD /* Build configuration list for PBXNativeTarget "SwoleUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3C459A9642D816130A0A538D /* Debug */,
+				FAC1E087E909019C3A6E04FF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		C28685667F7D4AE069DC7FB2 /* Build configuration list for PBXNativeTarget "Swole" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				947EB22CDC4854D4C3A3F799 /* Debug */,
+				921E224A4C44D0963428A743 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 3B3841D97682EEABA2DCB9D1 /* Project object */;
+}

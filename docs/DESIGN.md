@@ -16,7 +16,7 @@ execution: code
 - **Objective:** Ship a native iOS strength-and-cardio tracking app that works fully offline and manually on any supported iPhone, with Apple Intelligence adding AI workout generation and coaching as a capability-gated bonus.
 - **Product authority:** App owner (solo product decision-maker).
 - **Distribution:** Paid up-front on the App Store. No in-app purchases, no paywall — every feature is included in the purchase price.
-- **Open blockers:** None blocking planning. Minimum-iOS baseline and exercise-image bundling are Deferred to Planning (see Outstanding Questions).
+- **Open blockers:** None blocking planning. Exercise-image bundling remains Deferred to Planning (see Outstanding Questions). Minimum iOS baseline resolved as **iOS 18.0** (see Key Decisions and `docs/decisions/0001-tech-ios-baseline.md`).
 
 ---
 
@@ -38,7 +38,7 @@ Workout trackers force a trade-off: manual loggers are reliable but dumb, while 
 - **History is summarized, not replayed.** AI features consume a compact rolling summary of recent training (recent lifts, PRs, volume trends) rather than raw logs, to respect the model's small context window. The summary and all inference stay on-device (R22). This summary is also useful to the app itself.
 - **Progression is rule-based first.** Deterministic progressive-overload rules run on all devices instantly; AI layers richer, context-aware suggestions where available.
 - **Identity is the iCloud account; no separate login.** Sync and backup use the CloudKit private database tied to the user's iCloud account. Users signed out of iCloud lose sync/backup (accepted).
-- **Tech stack (subject of this brainstorm):** SwiftUI on an iOS 17+ baseline (exact minimum — 17 vs 18 — deferred to Planning); SwiftData persistence with a CloudKit private database for user-authored data and a separate local store for the bundled catalog (R23); Apple Foundation Models framework with guided generation for AI, gated behind runtime availability checks; free-exercise-db bundled as seed data. No backend service in v1.
+- **Tech stack:** SwiftUI on an **iOS 18.0** minimum deployment target (manual app; independent of the iOS 26+ AI gate — see `docs/decisions/0001-tech-ios-baseline.md`); Swift 6 with strict concurrency; SwiftData persistence with a CloudKit private database for user-authored data and a separate local store for the bundled catalog (R23); Apple Foundation Models framework with guided generation for AI, gated behind runtime availability checks; free-exercise-db bundled as seed data. No backend service in v1.
 
 ### Actors
 
@@ -249,7 +249,6 @@ flowchart TB
 
 **Deferred to Planning**
 
-- Minimum iOS baseline for the manual app (17 vs 18), independent of the iOS 26 AI gate.
 - Whether to bundle exercise images/animations from free-exercise-db (app size and licensing/attribution implications) or ship text-only at launch.
 - Units handling (lb/kg) and where the preference lives (per-user default, per-exercise override).
 - Bodyweight tracking — likely in-scope for a complete v1; confirm during planning. (Rest timers are now in scope — see R29–R31.)

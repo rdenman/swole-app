@@ -15,7 +15,7 @@ Drives one story from `docs/STORIES.md` to a verified, documented, complete stat
 
 ## Project map
 
-- **Canonical design doc:** `ARCHITECTURE.md` (repo root). Single source of truth for requirements (`R#`), acceptance examples (`AE#`), flows (`F#`), data model, and key decisions. If it has been renamed, find the file with `artifact_contract: ce-unified-plan/v1` in its frontmatter.
+- **Canonical design doc:** `docs/DESIGN.md`. Single source of truth for requirements (`R#`), acceptance examples (`AE#`), flows (`F#`), data model, and key decisions. If it has been renamed, find the file with `artifact_contract: ce-unified-plan/v1` in its frontmatter.
 - **Backlog:** `docs/STORIES.md`. Ordered stories `S01`–`S51`, a Milestones table, and status conventions.
 - **Decision records:** `docs/decisions/`. One markdown file per non-trivial tech/product/UX decision (created on demand — see below).
 
@@ -29,7 +29,7 @@ Copy this checklist and track it:
 - [ ] 3. Mark the story In progress + phase In progress
 - [ ] 4. Implement per Scope, honoring Definition of Done
 - [ ] 5. Verify: run tests + lint; confirm every Acceptance bullet
-- [ ] 6. Record decisions (docs/decisions/) + update ARCHITECTURE.md if a decision resolves an Outstanding Question
+- [ ] 6. Record decisions (docs/decisions/) + update docs/DESIGN.md if a decision resolves an Outstanding Question
 - [ ] 7. Mark the story Complete + update the Milestones table
 - [ ] 8. Summarize to the user
 ```
@@ -40,7 +40,7 @@ Copy this checklist and track it:
 
 ### 2. Load context
 - Read the entire story (Goal, Scope, Acceptance, Tests, Requirements).
-- Open `ARCHITECTURE.md` and read every referenced `R#`/`AE#`/`F#`. Implement to the requirement text, not just the story summary.
+- Open `docs/DESIGN.md` and read every referenced `R#`/`AE#`/`F#`. Implement to the requirement text, not just the story summary.
 - Skim `docs/decisions/` for records relevant to this area so you stay consistent with prior choices.
 - Confirm reuse: build UI from the design system (Phase 0 stories S05–S07); never introduce ad-hoc components or hardcoded tokens.
 
@@ -66,7 +66,7 @@ Create a decision record whenever the story involved a non-trivial, hard-to-reve
 
 Do **not** write a record for trivial or obvious implementation details. When in doubt for a genuinely load-bearing choice, write it.
 
-Also: if a decision resolves an item in `ARCHITECTURE.md` → **Outstanding Questions**, update that doc (move it out of Outstanding Questions into the relevant section or Key Decisions) and cite the decision record.
+Also: if a decision resolves an item in `docs/DESIGN.md` → **Outstanding Questions**, update that doc (move it out of Outstanding Questions into the relevant section or Key Decisions) and cite the decision record.
 
 See [decision record format](#decision-record-format) below.
 
@@ -113,4 +113,4 @@ Trade-offs, follow-ups, and any affected requirements, stories, or future work.
 - Never start a story with unmet dependencies without explicit user confirmation.
 - Never invent scope or requirements — if the story or a requirement is ambiguous, ask before building.
 - Edit `docs/STORIES.md` status only for the story in flight (plus its Milestones row).
-- Prefer editing existing docs over creating redundant ones; keep `ARCHITECTURE.md` authoritative and decision records specific.
+- Prefer editing existing docs over creating redundant ones; keep `docs/DESIGN.md` authoritative and decision records specific.
