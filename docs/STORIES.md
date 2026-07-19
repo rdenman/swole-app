@@ -65,7 +65,7 @@ Ordered, self-contained implementation backlog to take Swole from empty repo to 
 - **Tests:** N/A (tooling); verified by running the linters in CI (S03).
 
 ### S03 — CI pipeline
-- [ ] **Status:** Not started
+- [x] **Status:** Complete
 - **Goal:** Automated build + test + lint on every change.
 - **Depends on:** S01, S02
 - **Scope:**

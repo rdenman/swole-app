@@ -41,9 +41,9 @@ Prefer editing `project.yml` (targets, settings, deployment target) over hand-ed
 ## Local build & test
 
 ```bash
-# Build + test on an iOS 18 simulator (matches the deployment baseline)
+# Build + test on any installed iOS ≥ 18 simulator
 xcodebuild -project Swole.xcodeproj -scheme Swole \
-  -destination 'platform=iOS Simulator,name=iPhone 16,OS=18.6' \
+  -destination 'platform=iOS Simulator,name=iPhone 17' \
   test
 ```
 
@@ -73,6 +73,15 @@ Commits run lint/format on **staged** `.swift` files via `.githooks/pre-commit`.
 ```
 
 That sets `core.hooksPath` to `.githooks`. Missing tools fail the commit with install instructions.
+
+## CI
+
+GitHub Actions (`.github/workflows/ci.yml`) runs on every PR and on pushes to `main`:
+
+1. **Lint & format** — `swiftlint lint --strict` and `swiftformat --lint .`
+2. **Build & test** — regenerate the project with XcodeGen, then `xcodebuild test` (unit + UI) on an iOS Simulator
+
+Use the local build/test and lint commands above for day-to-day work; the workflow is the source of truth for what CI runs.
 
 ## Conventions
 

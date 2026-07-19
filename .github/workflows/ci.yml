@@ -1,0 +1,133 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+concurrency:
+  group: ci-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+env:
+  DERIVED_DATA_PATH: build/DerivedData
+  # Prefer a concrete device; OS is resolved from the selected Xcode’s installed runtimes.
+  SIMULATOR_NAME: iPhone 17
+
+jobs:
+  lint:
+    name: Lint & format
+    runs-on: macos-26
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Cache Homebrew downloads
+        uses: actions/cache@v4
+        with:
+          path: |
+            ~/Library/Caches/Homebrew
+            /opt/homebrew/Cache
+          key: brew-lint-${{ runner.os }}-${{ hashFiles('.swiftlint.yml', '.swiftformat') }}
+          restore-keys: |
+            brew-lint-${{ runner.os }}-
+
+      - name: Install SwiftLint
+        run: brew install swiftlint
+
+      - name: SwiftLint
+        run: swiftlint lint --strict
+
+      - name: SwiftFormat
+        # Preinstalled on macos-26 (matches local 0.62.1); brew would also work.
+        run: swiftformat --lint .
+
+  test:
+    name: Build & test
+    runs-on: macos-26
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Select Xcode
+        uses: maxim-lobanov/setup-xcode@v1
+        with:
+          xcode-version: "26.5"
+
+      - name: Cache Homebrew downloads
+        uses: actions/cache@v4
+        with:
+          path: |
+            ~/Library/Caches/Homebrew
+            /opt/homebrew/Cache
+          key: brew-xcodegen-${{ runner.os }}-${{ hashFiles('project.yml') }}
+          restore-keys: |
+            brew-xcodegen-${{ runner.os }}-
+
+      - name: Install XcodeGen
+        run: brew install xcodegen
+
+      - name: Generate Xcode project
+        run: xcodegen generate
+
+      - name: Cache DerivedData
+        uses: actions/cache@v4
+        with:
+          path: ${{ env.DERIVED_DATA_PATH }}
+          key: deriveddata-${{ runner.os }}-xcode26.5-${{ hashFiles('project.yml', 'Swole/**/*.swift', 'SwoleTests/**/*.swift', 'SwoleUITests/**/*.swift') }}
+          restore-keys: |
+            deriveddata-${{ runner.os }}-xcode26.5-
+            deriveddata-${{ runner.os }}-
+
+      - name: Resolve simulator destination
+        id: dest
+        run: |
+          set -euo pipefail
+          show="$(xcodebuild -project Swole.xcodeproj -scheme Swole -showdestinations 2>/dev/null || true)"
+          pick() {
+            local name_pat="$1"
+            local arch_pref="${2:-}"
+            local matches
+            matches="$(
+              echo "${show}" \
+                | grep "platform:iOS Simulator" \
+                | grep -v "placeholder" \
+                | grep "${name_pat}" \
+                || true
+            )"
+            if [[ -n "${arch_pref}" ]]; then
+              local preferred
+              preferred="$(echo "${matches}" | grep "${arch_pref}" | head -n 1 || true)"
+              if [[ -n "${preferred}" ]]; then
+                echo "${preferred}"
+                return
+              fi
+            fi
+            echo "${matches}" | head -n 1 || true
+          }
+          line="$(pick "name:${SIMULATOR_NAME}" "arch:arm64")"
+          if [[ -z "${line}" ]]; then
+            line="$(pick "name:iPhone" "arch:arm64")"
+          fi
+          if [[ -z "${line}" ]]; then
+            echo "No iOS Simulator destination found. Available:"
+            xcodebuild -project Swole.xcodeproj -scheme Swole -showdestinations
+            exit 1
+          fi
+          udid="$(echo "${line}" | sed -n 's/.*id:\([^,}]*\).*/\1/p' | tr -d ' ')"
+          destination="platform=iOS Simulator,id=${udid}"
+          echo "destination=${destination}" >> "${GITHUB_OUTPUT}"
+          echo "Using destination: ${destination}"
+          echo "${line}"
+
+      - name: Build and test
+        run: |
+          set -euo pipefail
+          xcodebuild \
+            -project Swole.xcodeproj \
+            -scheme Swole \
+            -destination "${{ steps.dest.outputs.destination }}" \
+            -derivedDataPath "${DERIVED_DATA_PATH}" \
+            -resultBundlePath TestResults.xcresult \
+            test \
+            | xcbeautify --renderer github-actions

@@ -21,6 +21,8 @@ Drives one story from `docs/STORIES.md` to a verified, documented, complete stat
 
 ## Workflow
 
+Do **not** create a git branch or commit as part of this workflow — stop after implementing and summarizing so the user can review first.
+
 Copy this checklist and track it:
 
 ```
@@ -108,6 +110,7 @@ Trade-offs, follow-ups, and any affected requirements, stories, or future work.
 ```
 
 ## Guardrails
+- **No git branch/commit:** Never checkout a new branch or commit code during this workflow. Leave all changes uncommitted on the current branch so the user can review before anything like that happens. Only create a branch or commit if the user explicitly asks after reviewing.
 - **Dependencies:** whenever you add or update a dependency (Swift Package, tool, etc.), use the latest stable version available. Resolve it via the package manager rather than hardcoding a guessed version, and note the resolved version in the story summary (and a decision record if the choice is load-bearing).
 - Never mark a story Complete without running its tests and confirming its Acceptance bullets.
 - Never start a story with unmet dependencies without explicit user confirmation.

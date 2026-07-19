@@ -17,4 +17,4 @@ xcodegen generate
 open Swole.xcodeproj
 ```
 
-See [docs/CONTRIBUTING.md](docs/CONTRIBUTING.md) for folder layout, build/test/lint commands, and conventions. Product requirements live in [docs/DESIGN.md](docs/DESIGN.md); the implementation backlog is [docs/STORIES.md](docs/STORIES.md).
+See [docs/CONTRIBUTING.md](docs/CONTRIBUTING.md) for folder layout, build/test/lint commands, CI, and conventions. Product requirements live in [docs/DESIGN.md](docs/DESIGN.md); the implementation backlog is [docs/STORIES.md](docs/STORIES.md).
