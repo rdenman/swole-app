@@ -11,8 +11,6 @@ concurrency:
 
 env:
   DERIVED_DATA_PATH: build/DerivedData
-  # Prefer a concrete device; OS is resolved from the selected Xcode’s installed runtimes.
-  SIMULATOR_NAME: iPhone 17
 
 jobs:
   lint:
@@ -54,6 +52,10 @@ jobs:
         with:
           xcode-version: "26.5"
 
+      # Warm CoreSimulator so destinations are visible after xcode-select.
+      - name: Refresh simulator list
+        run: xcrun simctl list > /dev/null
+
       - name: Cache Homebrew downloads
         uses: actions/cache@v4
         with:
@@ -79,54 +81,13 @@ jobs:
             deriveddata-${{ runner.os }}-xcode26.5-
             deriveddata-${{ runner.os }}-
 
-      - name: Resolve simulator destination
-        id: dest
-        run: |
-          set -euo pipefail
-          show="$(xcodebuild -project Swole.xcodeproj -scheme Swole -showdestinations 2>/dev/null || true)"
-          pick() {
-            local name_pat="$1"
-            local arch_pref="${2:-}"
-            local matches
-            matches="$(
-              echo "${show}" \
-                | grep "platform:iOS Simulator" \
-                | grep -v "placeholder" \
-                | grep "${name_pat}" \
-                || true
-            )"
-            if [[ -n "${arch_pref}" ]]; then
-              local preferred
-              preferred="$(echo "${matches}" | grep "${arch_pref}" | head -n 1 || true)"
-              if [[ -n "${preferred}" ]]; then
-                echo "${preferred}"
-                return
-              fi
-            fi
-            echo "${matches}" | head -n 1 || true
-          }
-          line="$(pick "name:${SIMULATOR_NAME}" "arch:arm64")"
-          if [[ -z "${line}" ]]; then
-            line="$(pick "name:iPhone" "arch:arm64")"
-          fi
-          if [[ -z "${line}" ]]; then
-            echo "No iOS Simulator destination found. Available:"
-            xcodebuild -project Swole.xcodeproj -scheme Swole -showdestinations
-            exit 1
-          fi
-          udid="$(echo "${line}" | sed -n 's/.*id:\([^,}]*\).*/\1/p' | tr -d ' ')"
-          destination="platform=iOS Simulator,id=${udid}"
-          echo "destination=${destination}" >> "${GITHUB_OUTPUT}"
-          echo "Using destination: ${destination}"
-          echo "${line}"
-
       - name: Build and test
         run: |
           set -euo pipefail
           xcodebuild \
             -project Swole.xcodeproj \
             -scheme Swole \
-            -destination "${{ steps.dest.outputs.destination }}" \
+            -destination 'platform=iOS Simulator,name=iPhone 17' \
             -derivedDataPath "${DERIVED_DATA_PATH}" \
             -resultBundlePath TestResults.xcresult \
             test \
