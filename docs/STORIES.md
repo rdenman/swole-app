@@ -8,9 +8,15 @@ Ordered, self-contained implementation backlog to take Swole from empty repo to 
 
 - Stories are listed in **implementation order**. Complete them top to bottom; a story's dependencies are always above it.
 - Each story is **self-contained**: an independent agent should be able to pick it up using only the story plus the referenced requirement IDs.
-- **Mark progress** by editing the checkbox: `- [ ]` → `- [x]`. Update the status line in the Milestones table when a phase completes.
+- **Each story has a single status marker** as its first bullet. Valid states:
+  - `- [ ] **Status:** Not started`
+  - `- [ ] **Status:** In progress`
+  - `- [x] **Status:** Complete`
+- **Milestones table:** a phase is `In progress` once any of its stories leaves Not started, and `Complete` once all its stories are Complete.
+- **Implementing stories:** use the `implement-story` skill (`.cursor/skills/implement-story/`), which finds the story, builds it against the design docs, updates status here, and records decisions.
 - **Testing bar (applies to every story):** ship unit tests for logic; critical user flows also get UI tests. A story is not "done" until its tests pass in CI (once CI exists, S03).
 - **Definition of Done (per story):** acceptance criteria met, tests passing, lint/format clean, no new accessibility regressions, and any new UI built from the design system (no ad-hoc components).
+- **Self-documenting:** any non-trivial tech, product, or UX/design decision made while implementing a story is captured as a decision record in `docs/decisions/` (see the skill).
 
 ## Milestones
 
@@ -32,7 +38,7 @@ Ordered, self-contained implementation backlog to take Swole from empty repo to 
 > Front-loaded so all feature work sits on a sound, consistent base. No feature story should begin before Phase 0 is complete.
 
 ### S01 — Project scaffold & platform baseline
-- [ ] **Status**
+- [ ] **Status:** Not started
 - **Goal:** Create the Xcode project and lock foundational technical choices.
 - **Depends on:** —
 - **Requirements:** R14; Key Decisions (tech stack); Outstanding Questions (iOS baseline)
@@ -49,7 +55,7 @@ Ordered, self-contained implementation backlog to take Swole from empty repo to 
 - **Tests:** A trivial passing unit test in the unit-test target; a smoke UI test that launches the app.
 
 ### S02 — Linting & formatting
-- [ ] **Status**
+- [ ] **Status:** Not started
 - **Goal:** Enforce consistent style automatically.
 - **Depends on:** S01
 - **Scope:**
@@ -59,7 +65,7 @@ Ordered, self-contained implementation backlog to take Swole from empty repo to 
 - **Tests:** N/A (tooling); verified by running the linters in CI (S03).
 
 ### S03 — CI pipeline
-- [ ] **Status**
+- [ ] **Status:** Not started
 - **Goal:** Automated build + test + lint on every change.
 - **Depends on:** S01, S02
 - **Scope:**
@@ -69,7 +75,8 @@ Ordered, self-contained implementation backlog to take Swole from empty repo to 
 - **Tests:** The workflow itself executing the existing test suite.
 
 ### S04 — Testing harness & fixtures
-- [ ] **Goal:** Make writing unit, UI, and snapshot tests easy and consistent.
+- [ ] **Status:** Not started
+- **Goal:** Make writing unit, UI, and snapshot tests easy and consistent.
 - **Depends on:** S01
 - **Scope:**
   - Add a snapshot-testing dependency; configure a snapshot strategy for design-system components.
@@ -79,7 +86,8 @@ Ordered, self-contained implementation backlog to take Swole from empty repo to 
 - **Tests:** The sample tests themselves.
 
 ### S05 — Design tokens
-- [ ] **Goal:** Establish the visual foundation so no screen hardcodes styles.
+- [ ] **Status:** Not started
+- **Goal:** Establish the visual foundation so no screen hardcodes styles.
 - **Depends on:** S01
 - **Requirements:** R28
 - **Scope:**
@@ -89,7 +97,8 @@ Ordered, self-contained implementation backlog to take Swole from empty repo to 
 - **Tests:** Snapshot tests of the token catalog in light/dark and at an accessibility text size.
 
 ### S06 — Core component library
-- [ ] **Goal:** Reusable primitives so features never build ad-hoc UI.
+- [ ] **Status:** Not started
+- **Goal:** Reusable primitives so features never build ad-hoc UI.
 - **Depends on:** S05
 - **Requirements:** R28
 - **Scope:**
@@ -99,7 +108,8 @@ Ordered, self-contained implementation backlog to take Swole from empty repo to 
 - **Tests:** Snapshot tests per component (states + dark + large text); a VoiceOver/traits unit check where feasible.
 
 ### S07 — Feedback & state components
-- [ ] **Goal:** Standard loading/empty/error surfaces reused everywhere.
+- [ ] **Status:** Not started
+- **Goal:** Standard loading/empty/error surfaces reused everywhere.
 - **Depends on:** S06
 - **Requirements:** R18, R26
 - **Scope:** Empty-state view (icon + message + CTA), loading indicator, error/retry view, inline banner/toast.
@@ -107,7 +117,8 @@ Ordered, self-contained implementation backlog to take Swole from empty repo to 
 - **Tests:** Snapshot tests for each state.
 
 ### S08 — App shell & navigation
-- [ ] **Goal:** The top-level structure the whole app hangs off.
+- [ ] **Status:** Not started
+- **Goal:** The top-level structure the whole app hangs off.
 - **Depends on:** S06
 - **Requirements:** R25, R13
 - **Scope:**
@@ -118,7 +129,8 @@ Ordered, self-contained implementation backlog to take Swole from empty repo to 
 - **Tests:** UI test asserting tab presence/landing; unit test for capability-gated tab visibility.
 
 ### S09 — Data layer core (SwiftData + two stores + migration baseline)
-- [ ] **Goal:** The persistence foundation for all user data.
+- [ ] **Status:** Not started
+- **Goal:** The persistence foundation for all user data.
 - **Depends on:** S01
 - **Requirements:** R14, R23, R37
 - **Scope:**
@@ -129,7 +141,8 @@ Ordered, self-contained implementation backlog to take Swole from empty repo to 
 - **Tests:** Unit tests for model round-trips in an in-memory container; a migration-plan smoke test.
 
 ### S10 — Cross-store exercise reference
-- [ ] **Goal:** Reference catalog/custom exercises across store boundaries safely.
+- [ ] **Status:** Not started
+- **Goal:** Reference catalog/custom exercises across store boundaries safely.
 - **Depends on:** S09
 - **Requirements:** R33, R2
 - **Scope:**
@@ -139,7 +152,8 @@ Ordered, self-contained implementation backlog to take Swole from empty repo to 
 - **Tests:** Unit tests for resolution (catalog hit, custom hit, missing → snapshot).
 
 ### S11 — Canonical units
-- [ ] **Goal:** One canonical storage unit so history/progression never drift.
+- [ ] **Status:** Not started
+- **Goal:** One canonical storage unit so history/progression never drift.
 - **Depends on:** S01
 - **Requirements:** R36
 - **Scope:** Value types storing **mass in kg, distance in meters**; conversion + formatting utilities; a display-unit hook (preference wired later in S48).
@@ -147,7 +161,8 @@ Ordered, self-contained implementation backlog to take Swole from empty repo to 
 - **Tests:** Unit tests for conversion/formatting and round-trip stability.
 
 ### S12 — Catalog seeding
-- [ ] **Goal:** Ship the exercise catalog, offline, without duplicates.
+- [ ] **Status:** Not started
+- **Goal:** Ship the exercise catalog, offline, without duplicates.
 - **Depends on:** S09, S10
 - **Requirements:** R1, R23, AE8
 - **Scope:**
@@ -158,7 +173,8 @@ Ordered, self-contained implementation backlog to take Swole from empty repo to 
 - **Tests:** Unit tests for seed + re-seed idempotency and stable-id keying.
 
 ### S13 — MetricKit diagnostics
-- [ ] **Goal:** Crash/hang insight without breaking the privacy label.
+- [ ] **Status:** Not started
+- **Goal:** Crash/hang insight without breaking the privacy label.
 - **Depends on:** S01
 - **Requirements:** R27
 - **Scope:** Subscribe to MetricKit; capture crash/hang/metric payloads on-device (log/persist locally). **No third-party analytics/crash SDKs.**
@@ -166,7 +182,8 @@ Ordered, self-contained implementation backlog to take Swole from empty repo to 
 - **Tests:** Unit test for the payload handler with a mock payload.
 
 ### S14 — Accessibility baseline
-- [ ] **Goal:** Bake accessibility into the foundation, not bolt it on.
+- [ ] **Status:** Not started
+- **Goal:** Bake accessibility into the foundation, not bolt it on.
 - **Depends on:** S06
 - **Requirements:** R28
 - **Scope:** Dynamic Type audit of components, VoiceOver labeling conventions doc, ≥44pt target lint/checklist, one-handed reachability guidance for active-workout controls.
@@ -178,7 +195,8 @@ Ordered, self-contained implementation backlog to take Swole from empty repo to 
 ## Phase 1 — Exercises & catalog
 
 ### S15 — Browse & search catalog
-- [ ] **Goal:** Let users find exercises from the seeded catalog.
+- [ ] **Status:** Not started
+- **Goal:** Let users find exercises from the seeded catalog.
 - **Depends on:** S08, S12
 - **Requirements:** R1, R3
 - **Scope:** List of catalog exercises; search by name; filter by muscle group/equipment; reads the local catalog store.
@@ -186,7 +204,8 @@ Ordered, self-contained implementation backlog to take Swole from empty repo to 
 - **Tests:** Unit tests for search/filter logic; UI test for search flow.
 
 ### S16 — Exercise detail
-- [ ] **Goal:** Show an exercise's attributes and supported set types.
+- [ ] **Status:** Not started
+- **Goal:** Show an exercise's attributes and supported set types.
 - **Depends on:** S15
 - **Requirements:** R3
 - **Scope:** Detail view (name, muscle group, equipment, supported set types). Image bundling remains deferred — text-first.
@@ -194,7 +213,8 @@ Ordered, self-contained implementation backlog to take Swole from empty repo to 
 - **Tests:** Snapshot test of the detail view.
 
 ### S17 — Create & edit custom exercise
-- [ ] **Goal:** Users add exercises the catalog lacks.
+- [ ] **Status:** Not started
+- **Goal:** Users add exercises the catalog lacks.
 - **Depends on:** S10, S16
 - **Requirements:** R2
 - **Scope:** Create/edit a custom exercise (name + attributes) stored in the CloudKit store; usable anywhere via `ExerciseRef`.
@@ -206,7 +226,8 @@ Ordered, self-contained implementation backlog to take Swole from empty repo to 
 ## Phase 2 — Templates
 
 ### S18 — Template builder (create)
-- [ ] **Goal:** Manually build a reusable template.
+- [ ] **Status:** Not started
+- **Goal:** Manually build a reusable template.
 - **Depends on:** S10, S15
 - **Requirements:** R4, R3
 - **Scope:** Name a template, add exercises via picker, order them; scaffolding for target sets (editor in S19).
@@ -214,7 +235,8 @@ Ordered, self-contained implementation backlog to take Swole from empty repo to 
 - **Tests:** Unit test for template persistence; UI test for create flow.
 
 ### S19 — Target set editor
-- [ ] **Goal:** Define target sets per exercise, by type.
+- [ ] **Status:** Not started
+- **Goal:** Define target sets per exercise, by type.
 - **Depends on:** S18, S11
 - **Requirements:** R3, R29 (rest duration field)
 - **Scope:** Add/remove/edit target sets: weight×reps or time/distance/pace; **optional per-set rest duration**; values stored canonically (S11).
@@ -222,7 +244,8 @@ Ordered, self-contained implementation backlog to take Swole from empty repo to 
 - **Tests:** Unit tests for set-type modeling & unit storage; UI test for editing sets.
 
 ### S20 — Template list & empty state
-- [ ] **Goal:** Browse saved templates from the landing tab.
+- [ ] **Status:** Not started
+- **Goal:** Browse saved templates from the landing tab.
 - **Depends on:** S18, S07
 - **Requirements:** R25, R26
 - **Scope:** Template list on the landing tab; empty state with create/generate CTA.
@@ -230,7 +253,8 @@ Ordered, self-contained implementation backlog to take Swole from empty repo to 
 - **Tests:** Snapshot tests (empty + populated); UI test navigating list → detail.
 
 ### S21 — Edit & delete template
-- [ ] **Goal:** Maintain templates over time.
+- [ ] **Status:** Not started
+- **Goal:** Maintain templates over time.
 - **Depends on:** S20
 - **Requirements:** R34
 - **Scope:** Edit a saved template (rename, add/remove exercises, change target sets); delete a single template with confirmation; editing does not alter prior sessions.
@@ -242,7 +266,8 @@ Ordered, self-contained implementation backlog to take Swole from empty repo to 
 ## Phase 3 — Active workout & timers
 
 ### S22 — Start a workout
-- [ ] **Goal:** Begin a live session from empty or a template.
+- [ ] **Status:** Not started
+- **Goal:** Begin a live session from empty or a template.
 - **Depends on:** S09, S20
 - **Requirements:** R5
 - **Scope:** Start-workout entry points; instantiate a live `Session` from empty or by copying a template's exercises/target sets (decoupled from the source template).
@@ -250,7 +275,8 @@ Ordered, self-contained implementation backlog to take Swole from empty repo to 
 - **Tests:** Unit test for session instantiation from a template; UI test for both entry points.
 
 ### S23 — Live workout logging
-- [ ] **Goal:** Perform and log sets during a workout.
+- [ ] **Status:** Not started
+- **Goal:** Perform and log sets during a workout.
 - **Depends on:** S22, S06
 - **Requirements:** R6, R7 (partial)
 - **Scope:** Live workout screen listing exercises/sets; log reps/weight/time/distance per set; mark sets complete; one-handed reachable primary controls.
@@ -258,7 +284,8 @@ Ordered, self-contained implementation backlog to take Swole from empty repo to 
 - **Tests:** Unit tests for logging model updates; UI test for logging a set.
 
 ### S24 — Rule-based progression engine
-- [ ] **Goal:** Deterministic progressive-overload suggestions on all devices.
+- [ ] **Status:** Not started
+- **Goal:** Deterministic progressive-overload suggestions on all devices.
 - **Depends on:** S09
 - **Requirements:** R9, R17
 - **Scope:** Pure logic service: given prior performance of an exercise, compute an advisory suggestion (e.g. increase load when top of rep range met); **cold start** → no suggestion, prompt for starting load. Exact policy (thresholds/increments) decided here and recorded.
@@ -266,7 +293,8 @@ Ordered, self-contained implementation backlog to take Swole from empty repo to 
 - **Tests:** Unit tests across rep-range/increment/cold-start cases.
 
 ### S25 — Progression suggestions in UI
-- [ ] **Goal:** Surface suggestions where users act.
+- [ ] **Status:** Not started
+- **Goal:** Surface suggestions where users act.
 - **Depends on:** S24, S23
 - **Requirements:** R9, R17, AE1
 - **Scope:** Show advisory suggestions per exercise in template view and live workout; never auto-apply; starting-load prompt on cold start.
@@ -274,7 +302,8 @@ Ordered, self-contained implementation backlog to take Swole from empty repo to 
 - **Tests:** UI test verifying advisory presentation; snapshot of suggestion + cold-start states.
 
 ### S26 — Mid-workout mutation
-- [ ] **Goal:** Fully mutable live workouts.
+- [ ] **Status:** Not started
+- **Goal:** Fully mutable live workouts.
 - **Depends on:** S23
 - **Requirements:** R6, AE4
 - **Scope:** Add/remove exercises, add/remove/edit sets mid-session regardless of start type; changes captured in history without altering the source template.
@@ -282,7 +311,8 @@ Ordered, self-contained implementation backlog to take Swole from empty repo to 
 - **Tests:** Unit tests for mutation isolation from templates; UI test for add-exercise mid-workout.
 
 ### S27 — Rest timer (foreground) & controls
-- [ ] **Goal:** Per-set rest timer with reliable timing and controls.
+- [ ] **Status:** Not started
+- **Goal:** Per-set rest timer with reliable timing and controls.
 - **Depends on:** S23
 - **Requirements:** R29, R31, R32
 - **Scope:** Optional per-set rest timer derived from **persisted wall-clock timestamps** (never an in-process counter); foreground countdown + haptic/sound at end; controls: skip/dismiss, pause/resume, adjust ±; adjustments rewrite the persisted end timestamp.
@@ -290,7 +320,8 @@ Ordered, self-contained implementation backlog to take Swole from empty repo to 
 - **Tests:** Unit tests for timestamp-derived remaining-time & control math; UI test for start/skip/adjust.
 
 ### S28 — Rest timer (background & terminated)
-- [ ] **Goal:** Correct behavior when the app isn't foregrounded.
+- [ ] **Status:** Not started
+- **Goal:** Correct behavior when the app isn't foregrounded.
 - **Depends on:** S27
 - **Requirements:** R29, R31, AE9
 - **Scope:** While backgrounded (not terminated), play a short audible cue at completion **honoring the ring/silent switch** (background-audio mechanism decided here); **no signal when fully terminated**; on resume, recompute remaining/elapsed from timestamps. No pre-scheduled local notifications.
@@ -298,7 +329,8 @@ Ordered, self-contained implementation backlog to take Swole from empty repo to 
 - **Tests:** Unit tests for elapsed recompute after simulated gaps; manual/QA note for audio-session behavior.
 
 ### S29 — Session duration & manual pause
-- [ ] **Goal:** Track total workout time meaningfully.
+- [ ] **Status:** Not started
+- **Goal:** Track total workout time meaningfully.
 - **Depends on:** S22
 - **Requirements:** R30, R31
 - **Scope:** Track total elapsed from start to completion via timestamps; **manual pause/resume** (subtract paused intervals); no auto-pause; long gaps accrue real time (accepted). Model paused intervals as explicit (start,end) pairs.
@@ -306,7 +338,8 @@ Ordered, self-contained implementation backlog to take Swole from empty repo to 
 - **Tests:** Unit tests for duration with/without pauses and across simulated background gaps.
 
 ### S30 — Complete workout
-- [ ] **Goal:** Persist a finished session to history.
+- [ ] **Status:** Not started
+- **Goal:** Persist a finished session to history.
 - **Depends on:** S23, S29
 - **Requirements:** R7
 - **Scope:** Complete action records the performed session (exercises, sets, start/end timestamps, duration) and routes to History.
@@ -314,7 +347,8 @@ Ordered, self-contained implementation backlog to take Swole from empty repo to 
 - **Tests:** Unit test for session finalization; UI test for complete flow.
 
 ### S31 — Cancel / discard / resume
-- [ ] **Goal:** Never lose an in-progress workout.
+- [ ] **Status:** Not started
+- **Goal:** Never lose an in-progress workout.
 - **Depends on:** S23
 - **Requirements:** R16, AE7
 - **Scope:** Cancel/discard with confirmation; auto-persist incomplete sessions; offer resume after background/terminate/relaunch, restoring the session clock and any running rest timer.
@@ -326,7 +360,8 @@ Ordered, self-contained implementation backlog to take Swole from empty repo to 
 ## Phase 4 — History
 
 ### S32 — History list
-- [ ] **Goal:** Review past workouts.
+- [ ] **Status:** Not started
+- **Goal:** Review past workouts.
 - **Depends on:** S30, S07
 - **Requirements:** R8, R26
 - **Scope:** Reverse-chronological list of performed sessions; empty state guiding to a first workout.
@@ -334,7 +369,8 @@ Ordered, self-contained implementation backlog to take Swole from empty repo to 
 - **Tests:** Snapshot (empty + populated); UI test list → detail.
 
 ### S33 — Session detail
-- [ ] **Goal:** Inspect a performed session.
+- [ ] **Status:** Not started
+- **Goal:** Inspect a performed session.
 - **Depends on:** S32
 - **Requirements:** R8
 - **Scope:** Detail view of exercises/sets performed, duration, date.
@@ -342,7 +378,8 @@ Ordered, self-contained implementation backlog to take Swole from empty repo to 
 - **Tests:** Snapshot of the detail view.
 
 ### S34 — Edit & delete past session
-- [ ] **Goal:** Correct mistakes in history.
+- [ ] **Status:** Not started
+- **Goal:** Correct mistakes in history.
 - **Depends on:** S33
 - **Requirements:** R35
 - **Scope:** Edit logged exercises/sets of a past session; delete a single session (distinct from full reset); edits/deletes propagate via CloudKit and feed progression (S24).
@@ -354,7 +391,8 @@ Ordered, self-contained implementation backlog to take Swole from empty repo to 
 ## Phase 5 — Training-history summary
 
 ### S35 — History summary builder
-- [ ] **Goal:** Compact on-device training summary feeding AI and the app.
+- [ ] **Status:** Not started
+- **Goal:** Compact on-device training summary feeding AI and the app.
 - **Depends on:** S30, S24
 - **Requirements:** R12, R22
 - **Scope:** Build a rolling summary (recent lifts, PRs, volume trends) from logged history, entirely on-device; sized for the on-device model's context; reusable by app surfaces.
@@ -366,7 +404,8 @@ Ordered, self-contained implementation backlog to take Swole from empty repo to 
 ## Phase 6 — AI generation & coaching (capability-gated)
 
 ### S36 — Foundation Models availability gating
-- [ ] **Goal:** Light up AI only where supported; never block manual use.
+- [ ] **Status:** Not started
+- **Goal:** Light up AI only where supported; never block manual use.
 - **Depends on:** S08
 - **Requirements:** R13, R22, AE2
 - **Scope:** Runtime capability detection for Apple Intelligence / Foundation Models; drive the AI Chat tab + entry-point visibility; disable AI (no server/PCC fallback) when unavailable.
@@ -374,7 +413,8 @@ Ordered, self-contained implementation backlog to take Swole from empty repo to 
 - **Tests:** Unit tests for capability flag → UI gating; UI test asserting AI hidden when flag off.
 
 ### S37 — AI chat interface
-- [ ] **Goal:** Conversational surface for generation.
+- [ ] **Status:** Not started
+- **Goal:** Conversational surface for generation.
 - **Depends on:** S36, S07
 - **Requirements:** R11
 - **Scope:** Chat UI (message list, input, send); wired to the generation service (S38); reachable only when capable.
@@ -382,7 +422,8 @@ Ordered, self-contained implementation backlog to take Swole from empty repo to 
 - **Tests:** UI test for the chat send flow (mock backend); snapshot of chat states.
 
 ### S38 — Guided generation → typed workout
-- [ ] **Goal:** Produce a structured single workout from chat.
+- [ ] **Status:** Not started
+- **Goal:** Produce a structured single workout from chat.
 - **Depends on:** S37, S35
 - **Requirements:** R11, R12
 - **Scope:** Assemble prompt with the history summary; use **guided generation** to emit a typed single-workout/template object (schema-locked); on-device only.
@@ -390,7 +431,8 @@ Ordered, self-contained implementation backlog to take Swole from empty repo to 
 - **Tests:** Unit tests for prompt assembly and schema decoding (mock model output).
 
 ### S39 — Generation interaction states
-- [ ] **Goal:** Robust UX around a fallible model.
+- [ ] **Status:** Not started
+- **Goal:** Robust UX around a fallible model.
 - **Depends on:** S38
 - **Requirements:** R18, AE6
 - **Scope:** Generating indicator; error state with retry/rephrase; defined handling for empty/invalid output.
@@ -398,7 +440,8 @@ Ordered, self-contained implementation backlog to take Swole from empty repo to 
 - **Tests:** Unit tests for state transitions; UI test for the error/retry path.
 
 ### S40 — Post-generation validation
-- [ ] **Goal:** Ensure generated content is real and usable.
+- [ ] **Status:** Not started
+- **Goal:** Ensure generated content is real and usable.
 - **Depends on:** S38, S12
 - **Requirements:** R20
 - **Scope:** Validate exercise references resolve against catalog/custom; reject/regenerate implausible output or offer unknowns as new custom exercises. Judge success by semantic acceptance, not schema alone.
@@ -406,7 +449,8 @@ Ordered, self-contained implementation backlog to take Swole from empty repo to 
 - **Tests:** Unit tests for validation (resolvable, unresolvable, implausible).
 
 ### S41 — Generated workout → editable builder
-- [ ] **Goal:** Put the user in control of AI output.
+- [ ] **Status:** Not started
+- **Goal:** Put the user in control of AI output.
 - **Depends on:** S40, S18
 - **Requirements:** R19
 - **Scope:** Open validated output pre-populated in the standard template/workout builder; user edits, then Save as template or Start now.
@@ -414,7 +458,8 @@ Ordered, self-contained implementation backlog to take Swole from empty repo to 
 - **Tests:** UI test: generate → edit → save/start.
 
 ### S42 — Cold-start generation
-- [ ] **Goal:** Generation works before any history exists.
+- [ ] **Status:** Not started
+- **Goal:** Generation works before any history exists.
 - **Depends on:** S38
 - **Requirements:** R21
 - **Scope:** With empty/short history, generate from stated goals, equipment, and experience rather than failing.
@@ -422,7 +467,8 @@ Ordered, self-contained implementation backlog to take Swole from empty repo to 
 - **Tests:** Unit test for cold-start prompt path.
 
 ### S43 — AI progression coaching
-- [ ] **Goal:** Richer, context-aware suggestions where available.
+- [ ] **Status:** Not started
+- **Goal:** Richer, context-aware suggestions where available.
 - **Depends on:** S36, S24, S35
 - **Requirements:** R10
 - **Scope:** On capable devices, layer AI progression suggestions alongside rule-based ones (S25); clearly additive, never replacing the deterministic baseline.
@@ -434,7 +480,8 @@ Ordered, self-contained implementation backlog to take Swole from empty repo to 
 ## Phase 7 — Sync, privacy & App Store
 
 ### S44 — CloudKit sync & offline reconcile
-- [ ] **Goal:** Automatic sync/backup with offline resilience.
+- [ ] **Status:** Not started
+- **Goal:** Automatic sync/backup with offline resilience.
 - **Depends on:** S09
 - **Requirements:** R14, R15, AE3
 - **Scope:** Wire CloudKit private-database sync for user-authored data; ensure offline edits reconcile on reconnect.
@@ -442,7 +489,8 @@ Ordered, self-contained implementation backlog to take Swole from empty repo to 
 - **Tests:** Unit/integration tests for offline→online reconcile (as feasible); QA note for device sync.
 
 ### S45 — Sync status & conflict handling
-- [ ] **Goal:** Make sync legible and conflicts defined.
+- [ ] **Status:** Not started
+- **Goal:** Make sync legible and conflicts defined.
 - **Depends on:** S44, S07
 - **Requirements:** R24
 - **Scope:** Surface syncing/synced/offline status and a distinct signed-out-of-iCloud state (sync paused); **decide and record the conflict-resolution strategy** (e.g. last-writer-wins vs field-merge; whether sessions are append-only) and reflect it in behavior.
@@ -450,7 +498,8 @@ Ordered, self-contained implementation backlog to take Swole from empty repo to 
 - **Tests:** Unit tests for status derivation; snapshot of each state.
 
 ### S46 — Data deletion / reset
-- [ ] **Goal:** User-controlled full data deletion.
+- [ ] **Status:** Not started
+- **Goal:** User-controlled full data deletion.
 - **Depends on:** S44
 - **Requirements:** R27, AE5
 - **Scope:** User-facing deletion/reset path removing local data and propagating to the private CloudKit database; no developer-server copy exists.
@@ -458,7 +507,8 @@ Ordered, self-contained implementation backlog to take Swole from empty repo to 
 - **Tests:** Unit/integration test for local+CloudKit deletion propagation.
 
 ### S47 — Privacy label & policy
-- [ ] **Goal:** Ship an accurate, defensible privacy posture.
+- [ ] **Status:** Not started
+- **Goal:** Ship an accurate, defensible privacy posture.
 - **Depends on:** S13, S46
 - **Requirements:** R27
 - **Scope:** Configure App Store **"Data Not Collected"** label; write a short privacy policy; confirm no data-collecting SDKs (audit) and on-device-only AI.
@@ -466,7 +516,8 @@ Ordered, self-contained implementation backlog to take Swole from empty repo to 
 - **Tests:** N/A (compliance); dependency audit checklist committed.
 
 ### S48 — Units display preference
-- [ ] **Goal:** Let users choose lb/kg without touching stored data.
+- [ ] **Status:** Not started
+- **Goal:** Let users choose lb/kg without touching stored data.
 - **Depends on:** S11
 - **Requirements:** R36
 - **Scope:** Settings preference for display units (per-user default; decide whether per-exercise override is in scope); wired to canonical-metric storage from S11.
@@ -474,7 +525,8 @@ Ordered, self-contained implementation backlog to take Swole from empty repo to 
 - **Tests:** Unit tests for preference-driven formatting; UI test for toggling units.
 
 ### S49 — First-launch onboarding
-- [ ] **Goal:** Orient a brand-new user.
+- [ ] **Status:** Not started
+- **Goal:** Orient a brand-new user.
 - **Depends on:** S08, S20
 - **Requirements:** R26
 - **Scope:** First-launch orientation to building/starting a workout; empty states polished across tabs.
@@ -482,7 +534,8 @@ Ordered, self-contained implementation backlog to take Swole from empty repo to 
 - **Tests:** UI test for first-launch flow; snapshots of empty states.
 
 ### S50 — Visual polish, icon & launch screen
-- [ ] **Goal:** Ship-quality look and feel.
+- [ ] **Status:** Not started
+- **Goal:** Ship-quality look and feel.
 - **Depends on:** S06, S49
 - **Requirements:** R28
 - **Scope:** App icon, launch screen, spacing/typography polish pass across screens using the design system; dark-mode and Dynamic Type QA.
@@ -490,7 +543,8 @@ Ordered, self-contained implementation backlog to take Swole from empty repo to 
 - **Tests:** Snapshot regression pass on key screens.
 
 ### S51 — App Store submission prep
-- [ ] **Goal:** Get to a submittable build.
+- [ ] **Status:** Not started
+- **Goal:** Get to a submittable build.
 - **Depends on:** all prior
 - **Requirements:** Distribution (Goal Capsule); R27
 - **Scope:** App Store Connect setup, metadata & keywords, screenshots, privacy label (S47), pricing (paid, no IAP), TestFlight beta, release checklist; final device QA on capable + incapable hardware.
