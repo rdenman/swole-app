@@ -17,7 +17,7 @@ S03 requires automated build, unit + UI tests on a simulator, and lint/format on
 - Pin Xcode to **26.5** via `maxim-lobanov/setup-xcode` (same major as the README requirement).
 - After selecting Xcode, run `xcrun simctl list > /dev/null` to warm CoreSimulator (common fix when destinations are missing right after `xcode-select`).
 - Split into two jobs: **lint** (SwiftLint + SwiftFormat) and **test** (XcodeGen → `xcodebuild test`).
-- Use a simple destination: `platform=iOS Simulator,name=iPhone 17` (matches devices shipped on current `macos-26` images).
+- Use a simple destination: `platform=iOS Simulator,arch=arm64,name=iPhone 17` (matches devices on current `macos-26` images; `arch` avoids the arm64/x86_64 dual-match warning).
 - Cache Homebrew download caches and `build/DerivedData` for speed.
 - Do **not** download iOS platforms in CI, probe multiple Xcodes, or maintain a separate local `ci.sh` — `.github/workflows/ci.yml` is the single source of truth; local checks use the documented lint/`xcodebuild` commands.
 
