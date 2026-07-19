@@ -7,10 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2018D7D63A0C1F4DA23D15C8 /* SnapshotTesting in Frameworks */ = {isa = PBXBuildFile; productRef = 59DCB8F94C16080C1C0C71D2 /* SnapshotTesting */; };
+		35CD348DC02625FF67DC3B5F /* DesignSystemSnapshots.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8DB765C9FFCAC72D2EDA45E /* DesignSystemSnapshots.swift */; };
+		3E90D31355F65379FE0690B4 /* UITestLaunchArguments.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01C8058944CAFFCB610B9003 /* UITestLaunchArguments.swift */; };
+		3F652D6B2700382AF2B12605 /* SampleRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A00AA858715C489A41D8786 /* SampleRecord.swift */; };
 		4D5E67EC5F338018349758FC /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EEADD156109B1F0385D7E63 /* ContentView.swift */; };
+		507A0F14BFD188A24F0638F1 /* SampleSnapshotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B472B422978D1C989FD53C0 /* SampleSnapshotTests.swift */; };
 		52B1E2B8EB033AE926916574 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B508C2DD2649700FA299F212 /* Assets.xcassets */; };
 		5F4BB2089A971D507F4C42B8 /* SmokeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAA12FB1B7D70703E42AA6F7 /* SmokeUITests.swift */; };
+		7C30DA13DC27C0D3C3700A0C /* SampleModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6722ABC199E7C851DE6457F /* SampleModelTests.swift */; };
+		C7ECF999E0976CA6DC8EDA20 /* LaunchArgumentUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A0DE4027E5B2CC278E3D3AB /* LaunchArgumentUITests.swift */; };
+		CE0212D4B41F7A840FCD7516 /* XCUIApplication+Launch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EC7AABC50DB8006E28866E8 /* XCUIApplication+Launch.swift */; };
 		E1E143E2431E2DC5EC894419 /* SmokeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08E60066C4D3FA2C027AE2FF /* SmokeTests.swift */; };
+		EC7B51D32E009EF18793C451 /* InMemoryModelContainerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD8453735FE1CDE44EBF702F /* InMemoryModelContainerFactory.swift */; };
 		F0FE3B3D3174CCD11EE88F65 /* SwoleApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA4E23A79559449A0966BA7D /* SwoleApp.swift */; };
 /* End PBXBuildFile section */
 
@@ -33,14 +42,33 @@
 
 /* Begin PBXFileReference section */
 		01C52155358A534B4DB26356 /* SwoleTests.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = SwoleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		01C8058944CAFFCB610B9003 /* UITestLaunchArguments.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITestLaunchArguments.swift; sourceTree = "<group>"; };
 		08E60066C4D3FA2C027AE2FF /* SmokeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmokeTests.swift; sourceTree = "<group>"; };
+		1A00AA858715C489A41D8786 /* SampleRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleRecord.swift; sourceTree = "<group>"; };
 		2EEADD156109B1F0385D7E63 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		3B472B422978D1C989FD53C0 /* SampleSnapshotTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleSnapshotTests.swift; sourceTree = "<group>"; };
+		3EC7AABC50DB8006E28866E8 /* XCUIApplication+Launch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCUIApplication+Launch.swift"; sourceTree = "<group>"; };
 		76DC491130D8AC706ACC7C2B /* Swole.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = Swole.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		7A0DE4027E5B2CC278E3D3AB /* LaunchArgumentUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchArgumentUITests.swift; sourceTree = "<group>"; };
+		AD8453735FE1CDE44EBF702F /* InMemoryModelContainerFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InMemoryModelContainerFactory.swift; sourceTree = "<group>"; };
 		B508C2DD2649700FA299F212 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		C8DB765C9FFCAC72D2EDA45E /* DesignSystemSnapshots.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignSystemSnapshots.swift; sourceTree = "<group>"; };
 		CA4E23A79559449A0966BA7D /* SwoleApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwoleApp.swift; sourceTree = "<group>"; };
 		CAA12FB1B7D70703E42AA6F7 /* SmokeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmokeUITests.swift; sourceTree = "<group>"; };
 		F5672D81F9CE66368D45DDFE /* SwoleUITests.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = SwoleUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		F6722ABC199E7C851DE6457F /* SampleModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleModelTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		4B833A9B1ED75570A373EBC8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2018D7D63A0C1F4DA23D15C8 /* SnapshotTesting in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
 		0F3E5C25653581D1A1DF4C84 /* Resources */ = {
@@ -60,13 +88,39 @@
 			path = App;
 			sourceTree = "<group>";
 		};
+		3C73FC027BB3B6B4AB23CAD4 /* Support */ = {
+			isa = PBXGroup;
+			children = (
+				01C8058944CAFFCB610B9003 /* UITestLaunchArguments.swift */,
+			);
+			path = Support;
+			sourceTree = "<group>";
+		};
 		5271F16E209A612C1AAF1898 /* Swole */ = {
 			isa = PBXGroup;
 			children = (
 				1643E7F7A6A9BF263194178D /* App */,
 				0F3E5C25653581D1A1DF4C84 /* Resources */,
+				3C73FC027BB3B6B4AB23CAD4 /* Support */,
 			);
 			path = Swole;
+			sourceTree = "<group>";
+		};
+		8C5785028C28293653F1CD99 /* Fixtures */ = {
+			isa = PBXGroup;
+			children = (
+				1A00AA858715C489A41D8786 /* SampleRecord.swift */,
+			);
+			path = Fixtures;
+			sourceTree = "<group>";
+		};
+		94E1863370720B6DA5EF46DA /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				C8DB765C9FFCAC72D2EDA45E /* DesignSystemSnapshots.swift */,
+				AD8453735FE1CDE44EBF702F /* InMemoryModelContainerFactory.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 		AF6D7455FF0201C0689430B8 /* Products */ = {
@@ -89,9 +143,21 @@
 			);
 			sourceTree = "<group>";
 		};
+		D7275F8E2E92F5CFAA095B6A /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				3EC7AABC50DB8006E28866E8 /* XCUIApplication+Launch.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
 		EA043375D92ACDA06713BBE4 /* SwoleTests */ = {
 			isa = PBXGroup;
 			children = (
+				8C5785028C28293653F1CD99 /* Fixtures */,
+				94E1863370720B6DA5EF46DA /* Helpers */,
+				F6722ABC199E7C851DE6457F /* SampleModelTests.swift */,
+				3B472B422978D1C989FD53C0 /* SampleSnapshotTests.swift */,
 				08E60066C4D3FA2C027AE2FF /* SmokeTests.swift */,
 			);
 			path = SwoleTests;
@@ -100,6 +166,8 @@
 		EB3AE2A01AE380C78DDE332F /* SwoleUITests */ = {
 			isa = PBXGroup;
 			children = (
+				D7275F8E2E92F5CFAA095B6A /* Helpers */,
+				7A0DE4027E5B2CC278E3D3AB /* LaunchArgumentUITests.swift */,
 				CAA12FB1B7D70703E42AA6F7 /* SmokeUITests.swift */,
 			);
 			path = SwoleUITests;
@@ -131,6 +199,7 @@
 			buildConfigurationList = 9C34BB9B89C2B7E5BEFDC01C /* Build configuration list for PBXNativeTarget "SwoleTests" */;
 			buildPhases = (
 				02381729DC0E17753702F329 /* Sources */,
+				4B833A9B1ED75570A373EBC8 /* Frameworks */,
 			);
 			buildRules = (
 			);
@@ -139,6 +208,7 @@
 			);
 			name = SwoleTests;
 			packageProductDependencies = (
+				59DCB8F94C16080C1C0C71D2 /* SnapshotTesting */,
 			);
 			productName = SwoleTests;
 			productReference = 01C52155358A534B4DB26356 /* SwoleTests.xctest */;
@@ -185,6 +255,9 @@
 			);
 			mainGroup = C374786C21132E206329890A;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				9D7AA879A8E9B1988399FFC8 /* XCRemoteSwiftPackageReference "swift-snapshot-testing" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = AF6D7455FF0201C0689430B8 /* Products */;
 			projectDirPath = "";
@@ -213,6 +286,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				35CD348DC02625FF67DC3B5F /* DesignSystemSnapshots.swift in Sources */,
+				EC7B51D32E009EF18793C451 /* InMemoryModelContainerFactory.swift in Sources */,
+				7C30DA13DC27C0D3C3700A0C /* SampleModelTests.swift in Sources */,
+				3F652D6B2700382AF2B12605 /* SampleRecord.swift in Sources */,
+				507A0F14BFD188A24F0638F1 /* SampleSnapshotTests.swift in Sources */,
 				E1E143E2431E2DC5EC894419 /* SmokeTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -221,7 +299,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C7ECF999E0976CA6DC8EDA20 /* LaunchArgumentUITests.swift in Sources */,
 				5F4BB2089A971D507F4C42B8 /* SmokeUITests.swift in Sources */,
+				CE0212D4B41F7A840FCD7516 /* XCUIApplication+Launch.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -231,6 +311,7 @@
 			files = (
 				4D5E67EC5F338018349758FC /* ContentView.swift in Sources */,
 				F0FE3B3D3174CCD11EE88F65 /* SwoleApp.swift in Sources */,
+				3E90D31355F65379FE0690B4 /* UITestLaunchArguments.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -539,6 +620,25 @@
 			defaultConfigurationName = Debug;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		9D7AA879A8E9B1988399FFC8 /* XCRemoteSwiftPackageReference "swift-snapshot-testing" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/pointfreeco/swift-snapshot-testing";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.19.3;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		59DCB8F94C16080C1C0C71D2 /* SnapshotTesting */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 9D7AA879A8E9B1988399FFC8 /* XCRemoteSwiftPackageReference "swift-snapshot-testing" */;
+			productName = SnapshotTesting;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 3B3841D97682EEABA2DCB9D1 /* Project object */;
 }

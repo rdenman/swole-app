@@ -75,7 +75,7 @@ Ordered, self-contained implementation backlog to take Swole from empty repo to 
 - **Tests:** The workflow itself executing the existing test suite.
 
 ### S04 — Testing harness & fixtures
-- [ ] **Status:** Not started
+- [x] **Status:** Complete
 - **Goal:** Make writing unit, UI, and snapshot tests easy and consistent.
 - **Depends on:** S01
 - **Scope:**

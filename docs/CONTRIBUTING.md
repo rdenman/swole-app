@@ -18,8 +18,10 @@ Tests:
 
 | Target | Role |
 |--------|------|
-| `SwoleTests` | Unit / logic tests (Swift Testing) |
-| `SwoleUITests` | UI / launch smoke tests (XCTest) |
+| `SwoleTests` | Unit / logic / snapshot tests (Swift Testing + SnapshotTesting) |
+| `SwoleUITests` | UI / launch tests (XCTest) |
+
+Shared harness pieces live under `SwoleTests/Helpers`, `SwoleTests/Fixtures`, and `SwoleUITests/Helpers` (see [Testing](#testing)).
 
 ## Platform baseline
 
@@ -82,6 +84,58 @@ GitHub Actions (`.github/workflows/ci.yml`) runs on every PR and on pushes to `m
 2. **Build & test** — regenerate the project with XcodeGen, then `xcodebuild test` (unit + UI) on an iOS Simulator
 
 Use the local build/test and lint commands above for day-to-day work; the workflow is the source of truth for what CI runs.
+
+## Testing
+
+### Naming
+
+- Unit / snapshot suites: `*Tests.swift` next to the area they cover (or under `SwoleTests/` until a feature folder exists).
+- UI suites: `*UITests.swift` in `SwoleUITests/`.
+- Test functions use a behavior-oriented name (`insertAndFetchSampleRecord`, not `test1`).
+
+### Structure (Given / When / Then)
+
+Prefer an explicit three-beat body with comments when the flow is non-trivial:
+
+```swift
+@Test func insertAndFetchSampleRecord() throws {
+    // given
+    let container = try InMemoryModelContainerFactory.make(for: [SampleRecord.self])
+    let context = ModelContext(container)
+
+    // when
+    context.insert(SampleRecordFixtures.make())
+    try context.save()
+
+    // then
+    let records = try context.fetch(FetchDescriptor<SampleRecord>())
+    #expect(records.count == 1)
+}
+```
+
+### Helpers
+
+| Helper | Use for |
+|--------|---------|
+| `InMemoryModelContainerFactory` | Disposable SwiftData containers (`isStoredInMemoryOnly`) |
+| `*Fixtures` builders | Deterministic sample models (fixed dates/names) |
+| `DesignSystemSnapshots.assertComponent` | Design-system (and simple view) image snapshots |
+| `XCUIApplication.launchForUITesting` | UI tests with `-ui-testing` + empty/seeded store args |
+
+Launch arguments (app reads via `UITestLaunchArguments`):
+
+| Argument | Meaning |
+|----------|---------|
+| `-ui-testing` | Running under UI automation |
+| `-ui-testing-empty` | Prefer an empty store |
+| `-ui-testing-seeded` | Prefer a seeded store |
+
+### Snapshots
+
+- Dependency: Point-Free [SnapshotTesting](https://github.com/pointfreeco/swift-snapshot-testing) (linked only to `SwoleTests`).
+- Use `DesignSystemSnapshots.assertComponent` so each component gets **light**, **dark**, and **accessibility ExtraExtraExtraLarge** variants (via `UITraitCollection`).
+- Reference PNGs live beside the test file under `__Snapshots__/`. Commit them; re-record with `withSnapshotTesting(record: .all) { … }` (or `.failed`) when intentional UI changes land.
+- Prefer a fixed layout canvas (not full-device chrome) so references stay stable across simulators.
 
 ## Conventions
 

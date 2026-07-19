@@ -29,6 +29,8 @@ opt_in_rules:
 
 disabled_rules:
   - todo
+  # SwiftFormat --commas always; keep a single source of truth for trailing commas.
+  - trailing_comma
 
 line_length:
   warning: 120
